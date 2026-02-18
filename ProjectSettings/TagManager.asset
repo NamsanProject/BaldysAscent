@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -41,6 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: L1_Floor
+    uniqueID: 336501417
+    locked: 0
+  - name: L1_Wall
+    uniqueID: 2199399789
+    locked: 0
+  - name: L1_Objects
+    uniqueID: 3264860735
+    locked: 0
+  - name: L2_Floor
+    uniqueID: 442998641
+    locked: 0
+  - name: L2_Wall
+    uniqueID: 1082835977
+    locked: 0
+  - name: L2_Objects
+    uniqueID: 1323341113
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
@@ -50,27 +68,3 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
