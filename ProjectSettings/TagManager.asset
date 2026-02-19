@@ -13,10 +13,10 @@ TagManager:
   - UI
   - Player
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player_F1
+  - Player_F2
+  - Map_F1
+  - Map_F2
   - 
   - 
   - 
@@ -41,23 +41,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: L1_Floor
+  - name: F1
     uniqueID: 336501417
     locked: 0
-  - name: L1_Wall
-    uniqueID: 2199399789
-    locked: 0
-  - name: L1_Objects
-    uniqueID: 3264860735
-    locked: 0
-  - name: L2_Floor
+  - name: F2
     uniqueID: 442998641
-    locked: 0
-  - name: L2_Wall
-    uniqueID: 1082835977
-    locked: 0
-  - name: L2_Objects
-    uniqueID: 1323341113
     locked: 0
   m_RenderingLayers:
   - Default
