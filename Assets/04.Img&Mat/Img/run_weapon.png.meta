@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 79e4c3b4f46a14244b7c7a7576855483
+guid: 56fde409925acd447ace40e6e023b4c5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,111 +110,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run_0
+      name: run_weapon_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 44
-        width: 382
-        height: 608
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 34
+        width: 541
+        height: 484
+      alignment: 9
+      pivot: {x: 0.5938884, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c1c90efcc3c28d4ca775638977f62de
-      internalID: -1548456350
+      spriteID: 363890a19a4a82b40830d6fbf90c0ccc
+      internalID: 1392444225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_1
+      name: run_weapon_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 44
-        width: 369
-        height: 625
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 626
+        y: 33
+        width: 446
+        height: 464
+      alignment: 9
+      pivot: {x: 0.5996511, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff874d45cf2e7ca499cf41669b951244
-      internalID: 146518059
+      spriteID: c2790fbe5758d0741a7c5762fb22d603
+      internalID: -335525061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_2
+      name: run_weapon_2
       rect:
         serializedVersion: 2
-        x: 982
-        y: 19
-        width: 358
-        height: 639
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1136
+        y: 81
+        width: 504
+        height: 466
+      alignment: 9
+      pivot: {x: 0.57138646, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b80697128ac40704499b6bf37ca73f27
-      internalID: -971491740
+      spriteID: 85bee74caf79f3847ab0369a4fffe238
+      internalID: 888825709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_3
+      name: run_weapon_3
       rect:
         serializedVersion: 2
-        x: 1442
-        y: 36
-        width: 358
-        height: 623
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1691
+        y: 33
+        width: 515
+        height: 478
+      alignment: 9
+      pivot: {x: 0.6027379, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 189c13a69ef2c754599cdf0f9d033d56
-      internalID: 1390242644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_4
-      rect:
-        serializedVersion: 2
-        x: 1933
-        y: 30
-        width: 367
-        height: 626
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0be861bac49938349b331c24e2dff210
-      internalID: 1357327903
+      spriteID: 0b6844834f533f9428c4eacdda9ae3c2
+      internalID: 832624275
       vertices: []
       indices: 
       edges: []
@@ -223,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 567696064e15bce438f834efe3b4937a
+    spriteID: 988928fa96cbce1429c015ed2355a46d
     internalID: 0
     vertices: []
     indices: 
@@ -233,13 +211,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      run_0: -1548456350
-      run_1: 146518059
-      run_2: -971491740
-      run_3: 1390242644
-      run_4: 1357327903
+      run_weapon_0: 1392444225
+      run_weapon_1: -335525061
+      run_weapon_2: 888825709
+      run_weapon_3: 832624275
+      run_weapon_4: -758778299
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
