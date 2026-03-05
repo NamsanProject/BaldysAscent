@@ -10,8 +10,6 @@ public class DynamicBlobShadow : MonoBehaviour
     private const float MinHeightDiff = 0.1f;
     private const float DirectionEpsilon = 0.001f;
     private const float StretchBaseMultiplier = 0.5f;
-    private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
-    private static readonly int ColorId = Shader.PropertyToID("_Color");
 
     [Header("Target Props")]
     [SerializeField] private Transform lightSource;      // 광원 오브젝트 (Torch 등)
@@ -25,21 +23,27 @@ public class DynamicBlobShadow : MonoBehaviour
     [SerializeField] private float minShadowLength = 0.5f;
     [Tooltip("그림자의 최대 길이 (너무 길어짐 방지)")]
     [SerializeField] private float maxShadowLength = 3.0f;
-    [Tooltip("광원과의 거리에 따른 투명도 감쇄 시작 거리")]
-    [SerializeField] private float fadeDistance = 15f;
-    [Tooltip("그림자의 최대 불투명도")]
-    [Range(0f, 1f)][SerializeField] private float maxShadowOpacity = 0.7f;
     [Tooltip("그림자 길이로 사용할 로컬 축 (Quad/Sprite 방향에 맞춰 설정)")]
     [SerializeField] private ShadowLengthAxis lengthAxis = ShadowLengthAxis.Y;
+
+    [Header("Runtime Control")]
+    [Tooltip("끄면 이 스크립트가 그림자 변형을 적용하지 않습니다.")]
+    [SerializeField] private bool enableDynamicShadow = true;
 
     // 초기 그림자 스케일과 회전을 저장하여 비율 유지
     private Vector3 initialScale;
     private Quaternion initialRotation;
-    private SpriteRenderer shadowSpriteRenderer;
-    private Renderer shadowRenderer;
-    private MaterialPropertyBlock shadowPropertyBlock;
-    private int colorPropertyId = -1;
-    private Color initialShadowColor = Color.white;
+
+    public bool EnableDynamicShadow
+    {
+        get => enableDynamicShadow;
+        set => enableDynamicShadow = value;
+    }
+
+    public void SetDynamicShadowEnabled(bool enabled)
+    {
+        enableDynamicShadow = enabled;
+    }
 
     private void Awake()
     {
@@ -53,11 +57,6 @@ public class DynamicBlobShadow : MonoBehaviour
             maxShadowLength = minShadowLength;
         }
 
-        if (fadeDistance < 0f)
-        {
-            fadeDistance = 0f;
-        }
-
         if (shadowTransform != null)
         {
             CacheReferences();
@@ -67,6 +66,11 @@ public class DynamicBlobShadow : MonoBehaviour
     private void LateUpdate()
     {
         if (!HasRequiredTargets())
+        {
+            return;
+        }
+
+        if (!enableDynamicShadow)
         {
             return;
         }
@@ -83,46 +87,6 @@ public class DynamicBlobShadow : MonoBehaviour
     {
         initialScale = shadowTransform.localScale;
         initialRotation = shadowTransform.rotation;
-
-        shadowSpriteRenderer = shadowTransform.GetComponent<SpriteRenderer>();
-        shadowRenderer = shadowSpriteRenderer == null ? shadowTransform.GetComponent<Renderer>() : null;
-
-        if (shadowSpriteRenderer != null)
-        {
-            initialShadowColor = shadowSpriteRenderer.color;
-            shadowPropertyBlock = null;
-            colorPropertyId = -1;
-            return;
-        }
-
-        if (shadowRenderer == null || shadowRenderer.sharedMaterial == null)
-        {
-            shadowPropertyBlock = null;
-            colorPropertyId = -1;
-            return;
-        }
-
-        if (shadowRenderer.sharedMaterial.HasProperty(BaseColorId))
-        {
-            colorPropertyId = BaseColorId;
-        }
-        else if (shadowRenderer.sharedMaterial.HasProperty(ColorId))
-        {
-            colorPropertyId = ColorId;
-        }
-        else
-        {
-            colorPropertyId = -1;
-        }
-
-        if (colorPropertyId == -1)
-        {
-            shadowPropertyBlock = null;
-            return;
-        }
-
-        initialShadowColor = shadowRenderer.sharedMaterial.GetColor(colorPropertyId);
-        shadowPropertyBlock ??= new MaterialPropertyBlock();
     }
 
     private void ApplyShadowProps()
