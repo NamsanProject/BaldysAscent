@@ -1558,7 +1558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCtrl
   speed: 1
-  hp: 0
+  hp: 100
   attackState: 0
   isDead: 0
 --- !u!212 &1720752922
