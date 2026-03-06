@@ -76,6 +76,7 @@ SpriteAtlas:
     - 4b5d6f19a46dcab4aa72de1e8ca8b4f4: 21300000
     - 2c4f704950897824d95f6d49a0938d4f: 21300000
     - 122ff5b99a242a74b95e059a9cf4926d: 21300000
+    - 6f45d6d9fa3e6bb42a8a0a206b653a4c: 21300000
     - 0f70d50acbc07734f8354a79365d6640: 21300000
     - 2b47d01a7299c344294ccb6a82ed7fc5: 21300000
     - 2851d91a9329c194da62f63b1562713a: 21300000
@@ -92,6 +93,7 @@ SpriteAtlas:
     - 83afdefb83c6e0044956c3337a810ae7: 21300000
     - 79c62e0cec893cb4baf172add5fc708e: 21300000
     - 7e10dbacf541f5d49941178e5c0405f7: 21300000
+    - 92856dac3eb756c4f8668073bd9e4589: 21300000
     - 129b6acc53b8b8645bbfb37c3002feb1: 21300000
     - 82dddd2dbc3fb0a4db20d09a6c82b389: 21300000
     - c427eb4d5be389b479a6cbe055ce533f: 21300000
@@ -141,6 +143,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4b5d6f19a46dcab4aa72de1e8ca8b4f4, type: 3}
   - {fileID: 21300000, guid: 2c4f704950897824d95f6d49a0938d4f, type: 3}
   - {fileID: 21300000, guid: 122ff5b99a242a74b95e059a9cf4926d, type: 3}
+  - {fileID: 21300000, guid: 6f45d6d9fa3e6bb42a8a0a206b653a4c, type: 3}
   - {fileID: 21300000, guid: 0f70d50acbc07734f8354a79365d6640, type: 3}
   - {fileID: 21300000, guid: 2b47d01a7299c344294ccb6a82ed7fc5, type: 3}
   - {fileID: 21300000, guid: 2851d91a9329c194da62f63b1562713a, type: 3}
@@ -157,6 +160,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 83afdefb83c6e0044956c3337a810ae7, type: 3}
   - {fileID: 21300000, guid: 79c62e0cec893cb4baf172add5fc708e, type: 3}
   - {fileID: 21300000, guid: 7e10dbacf541f5d49941178e5c0405f7, type: 3}
+  - {fileID: 21300000, guid: 92856dac3eb756c4f8668073bd9e4589, type: 3}
   - {fileID: 21300000, guid: 129b6acc53b8b8645bbfb37c3002feb1, type: 3}
   - {fileID: 21300000, guid: 82dddd2dbc3fb0a4db20d09a6c82b389, type: 3}
   - {fileID: 21300000, guid: c427eb4d5be389b479a6cbe055ce533f, type: 3}
@@ -205,6 +209,7 @@ SpriteAtlas:
   - oakBarrel3
   - chair5
   - chair7
+  - brazier
   - sack2
   - chair10
   - firewood5
@@ -221,6 +226,7 @@ SpriteAtlas:
   - sack2_2
   - firewood1
   - sack5
+  - Pillar01
   - box_isometric2
   - basket5
   - box_isometric5
