@@ -109,6 +109,8 @@ public class PlayerCtrl : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(isDead)
+            return;
         // 중력 작용
         if(transform.position.y > 0.0f)
             rigid.AddForce(Vector3.down * gravity);
@@ -120,7 +122,7 @@ public class PlayerCtrl : MonoBehaviour
         }
 
         // 캐릭터 움직임
-        if (moveInput != Vector3.zero && !attackState && !isDead)
+        if (moveInput != Vector3.zero && !attackState)
         {
             rigid.linearVelocity = moveInput.normalized * speed;
             anim.SetBool("Run", true);
@@ -148,7 +150,7 @@ public class PlayerCtrl : MonoBehaviour
     // 체력 관련
     public void SetHp(float hp)
     {
-        if(hp < 0.0f || hp > 100.0f)
+        if(hp < 0.0f || hp > maxHp)
         {
             Debug.Log("Out Of Range");
             return;        
@@ -159,7 +161,7 @@ public class PlayerCtrl : MonoBehaviour
     public void HpDown(float hp)
     {
         this.hp -= hp;
-        if(this.hp < 0.0f)
+        if(this.hp <= 0.0f)
         {
             if(!isDead)
             {
@@ -176,8 +178,8 @@ public class PlayerCtrl : MonoBehaviour
     public void HpUp(float hp)
     {
         this.hp += hp;
-        if(this.hp > 100.0f)
-            this.hp = 100.0f;
+        if(this.hp > maxHp)
+            this.hp = maxHp;
     }
 
     // 공격 애니메이션 종료
