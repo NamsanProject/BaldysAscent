@@ -19,6 +19,8 @@ public class PlayerCtrl : MonoBehaviour
     private float maxHp;
     [HideInInspector]
     public bool attackState;
+    [HideInInspector]
+    public bool isDead;
     
     private Vector3 moveInput;
 
@@ -45,13 +47,18 @@ public class PlayerCtrl : MonoBehaviour
         hp = 100.0f;
         maxHp = 100.0f;
         attackState = false;
+        isDead = false;
         dirLeft = true;
         hitRecovery = false;
+
+        // 충돌관련 초기화
+        rigid.isKinematic = false;
+        capCol.isTrigger = false;
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.X) && attackState == false)
+        if(Input.GetKeyDown(KeyCode.X) && !attackState && !isDead)
         {
             anim.SetTrigger("Attack");
             attackState = true;
@@ -113,7 +120,7 @@ public class PlayerCtrl : MonoBehaviour
         }
 
         // 캐릭터 움직임
-        if (moveInput != Vector3.zero && attackState == false)
+        if (moveInput != Vector3.zero && !attackState && !isDead)
         {
             rigid.linearVelocity = moveInput.normalized * speed;
             anim.SetBool("Run", true);
@@ -128,11 +135,14 @@ public class PlayerCtrl : MonoBehaviour
     // 스프라이트 반전
     void Flip()
     {
-        dirLeft = !dirLeft;
+        if(!attackState && !isDead)
+        {
+            dirLeft = !dirLeft;
 
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
     }
 
     // 체력 관련
@@ -148,22 +158,26 @@ public class PlayerCtrl : MonoBehaviour
 
     public void HpDown(float hp)
     {
-        if(this.hp - hp < 0.0f)
-        {
-            Debug.Log("Out Of Range");
-            return;  
-        }
         this.hp -= hp;
+        if(this.hp < 0.0f)
+        {
+            if(!isDead)
+            {
+                isDead = true;
+                anim.SetTrigger("Die");
+                // 사망 시 충돌 판정 제거
+                rigid.isKinematic = true;
+                capCol.isTrigger = true;
+            }
+            this.hp = 0.0f;
+        }
     }
 
     public void HpUp(float hp)
     {
-        if(this.hp + hp > maxHp)
-        {
-            Debug.Log("Out Of Range");
-            return;  
-        }
         this.hp += hp;
+        if(this.hp > 100.0f)
+            this.hp = 100.0f;
     }
 
     // 공격 애니메이션 종료
@@ -177,9 +191,12 @@ public class PlayerCtrl : MonoBehaviour
         if(col.gameObject.tag == "Enemy" && !hitRecovery)
         {
             HpDown(30.0f);
-            hitRecovery = true;
-            StartCoroutine("InvincibleFrame");
-            StartCoroutine("Blink");
+            if(!isDead)
+            {
+                hitRecovery = true;
+                StartCoroutine("InvincibleFrame");
+                StartCoroutine("Blink");
+            }
         }
     }
 
